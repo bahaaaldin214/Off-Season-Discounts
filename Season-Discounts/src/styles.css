@@ -1,0 +1,13 @@
+/* Ensure the html and body take up the full height of the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the app-root also takes up the full height */
+app-root {
+  min-height: 100vh; /* 100% of the viewport height */
+  position: relative; /* For absolute positioning of the background-wrapper */
+}
+

@@ -1,0 +1,19 @@
+<div class="admin-section">
+  <h1>Admin View</h1>
+
+  <div class="item-form">
+    <input [(ngModel)]="newItem.name" placeholder="Item Name">
+    <input [(ngModel)]="newItem.price" placeholder="Price">
+    <input [(ngModel)]="newItem.image" placeholder="Image URL">
+    <button (click)="addItem()">Add Item</button>
+  </div>
+
+  <div class="admin-gallery">
+    <div *ngFor="let item of items; let i = index" class="gallery-item">
+      <img [src]="item.image" alt="{{ item.name }}">
+      <h2>{{ item.name }}</h2>
+      <p>${{ item.price }}</p>
+      <button (click)="removeItem(i)">Remove</button>
+    </div>
+  </div>
+</div>

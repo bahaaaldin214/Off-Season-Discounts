@@ -1,0 +1,15 @@
+<div class="welcome-section">
+  <h1>Welcome to Our Store</h1>
+  <div class="scroll-down">
+    <a href="#gallery">▼</a>
+  </div>
+</div>
+
+<div id="gallery" class="gallery-section">
+  <div *ngFor="let item of items" class="gallery-item"  (click)="onItemClicked(item)">
+    <img [src]="'../../assets/Listing/'+item.name+'/'+item.images[0]" alt="{{ item.name }}">
+    <h2>{{ item.name }}</h2>
+    <p>${{ item.price }}</p>
+  </div>
+</div>
+<app-item-popup *ngIf="selectedItem" [item]="selectedItem" (itemClick) = "closePopup()"></app-item-popup>

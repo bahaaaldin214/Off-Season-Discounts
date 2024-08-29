@@ -1,0 +1,135 @@
+/* Ensure html and body take up the full height of the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Container for all content */
+main {
+  position: relative; /* Ensure content is above the background */
+  z-index: 1; /* Ensure content stays above the background */
+  width: 100%;
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text and other inline elements inside items */
+  padding: 1rem;
+  box-sizing: border-box; /* Include padding in element width/height calculations */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+
+/* Ensure the background container covers the full viewport */
+.background {
+  /*position: absolute;*/ /* Positioned relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row; /* Align gradient and image side by side */
+  z-index: -1;
+/*  position: fixed*/
+}
+
+/* Image container */
+.img {
+  background: url('/assets/background.jpeg') no-repeat center center;
+  background-color: rgb(69, 180, 191);
+  background-size: 100%; /* Ensure the image covers the container */
+  width: 50%; /* Take up half of the container width */
+  height: 100%; /* Full height */
+}
+
+/* Gradient container */
+.grad {
+  width: 50%; /* Take up the other half of the container width */
+  height: 100%; /* Full height */
+  background-repeat: no-repeat;
+  background: linear-gradient(to right, rgb(69, 180, 191), white);
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+  /* Centered image */
+  .grad img {
+    max-width: 100%; /* Ensure the image does not overflow the container */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+
+/* Header positioning */
+h1 {
+  position: relative; /* Position relative to the normal flow */
+  width: max-content; /* Adjust width to fit the content */
+  top: 0;
+  left: 50%; /* Center horizontally relative to the container */
+  transform: translateX(-50%); /* Adjust horizontal centering */
+  font-size: 3.125rem;
+  color: var(--gray-900);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+  margin: 1rem; /* Adjust top margin as needed */
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  z-index: 1;
+}
+#narrow {
+    display: none;
+}
+
+.gallery {
+  flex: 1 1 100%; /* Allow items to shrink and take full width on small screens */
+  max-width: 100%; /* Prevent items from exceeding the container width */
+  box-sizing: border-box; /* Include padding in element width/height calculations */
+  margin: 0.5rem; /* Add some space between items */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .img, .grad {
+    width: 100%;
+    top: 0;
+/*    position: fixed;*/
+    height: 50%; /* Full height */
+    background-size: 100%; /* Ensure the image covers the container */
+  }
+
+  /* Gradient container */
+  .grad {
+    background: linear-gradient(to bottom, rgb(69, 180, 191), white);
+    top: 50%;
+  }
+
+  .background {
+    flex-direction: column; /* Align gradient and image side by side */
+/*    position: fixed;*/
+    top: 0;
+  }
+
+  #wide {
+      display: none;
+  }
+
+  #narrow {
+      display: flex;
+  }
+
+  .gallery {
+    flex: 1 1 calc(50% - 1rem); /* Two items per row with margin */
+  }
+}
+@media (max-height: 720px) {
+  img{
+      display: none;
+  }
+
+  .gallery {
+    flex: 1 1 calc(33.33% - 1rem); /* Three items per row with margin */
+  }
+}
