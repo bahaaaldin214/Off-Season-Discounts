@@ -1,11 +1,21 @@
-<h1 id="wide">Off-Season Discounts</h1>
-<div class = "background">
-  <h1 id="narrow">Off-Season Discounts</h1>
-  <div class = "img"></div>
-  <div class = "grad">
+<div class="background">
+  <div class="img"></div>
+  <div class="middle">
+    <div class="top">
+      <h1>Off-Season Discounts</h1>
+    </div>
+    <div class="scroll">
+      <h1>Welcome to Our Store</h1>
+      <a href="#gallery" class="scroll-arrow">▼<br></a>
+      <a href="#gallery" class="scroll-arrow">▼<br></a>
+      <a href="#gallery" class="scroll-arrow">▼<br></a>
+    </div>
+  </div>
+  <div class="grad">
     <img src="./assets/qrCode.png"> 
   </div>
 </div>
+
 
 <div *ngIf="isAdmin; else customerView">
   <app-admin-view></app-admin-view>
@@ -14,8 +24,8 @@
 <ng-template #customerView>
   <app-customer-view [items]="items"></app-customer-view>
 </ng-template>
-
+<!--
 <button (click)="toggleView()">
   Toggle View
 </button>
-
+-->
